@@ -1,0 +1,57 @@
+{
+  "name": "@hellogbx/dsh-worklog",
+  "version": "1.0.0",
+  "description": "A DSH bundle that adds a work log and todo list to the sidebar: one-line session highlights per project, a by-day review, and one unified todo list shared by every project.",
+  "type": "module",
+  "license": "MIT",
+  "author": "hellogbx",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hellogbx/dsh-worklog.git"
+  },
+  "homepage": "https://github.com/hellogbx/dsh-worklog",
+  "bugs": {
+    "url": "https://github.com/hellogbx/dsh-worklog/issues"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek",
+    "harness",
+    "worklog",
+    "todo",
+    "summary"
+  ],
+  "engines": {
+    "node": ">=18",
+    "dsh": ">=0.2.2-rc.1"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-layout",
+        "@deepseek-ai/dsh-client-ui-sidebar"
+      ]
+    }
+  }
+}

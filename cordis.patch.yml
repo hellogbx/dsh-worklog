@@ -1,0 +1,15 @@
+# Bundle patch: one plugin row providing both halves.
+#
+# The work summary reads the Harness Session logs: each session contributes one
+# short highlight from its final written outcome, grouped per project and by
+# day. Change details and files are not listed.
+# `cacheSeconds` bounds replay work; `maxSessions` caps how many touched
+# sessions a range may read. `dataDir` relocates the unified todo store; by
+# default it lives in $DSH_HOME/worklog/todos.json.
+- insert:
+    - id: worklog
+      name: '@hellogbx/dsh-worklog'
+      config:
+        cacheSeconds: 60
+        maxSessions: 200
+        # dataDir: ~/.dsh/worklog
